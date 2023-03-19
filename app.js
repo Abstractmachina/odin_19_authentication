@@ -5,6 +5,7 @@ const path = require("path");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const brypt = require("bcryptjs");
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
@@ -69,7 +70,7 @@ app.use(function(req, res, next) {
 });
 
 
-//routes
+//===============   routes =============================
 app.get("/", (req, res) => {
     res.render("index", {user: req.user });
 });
